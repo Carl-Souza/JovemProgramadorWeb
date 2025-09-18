@@ -1,10 +1,18 @@
-﻿using JovemProgramadorWeb.Models;
+﻿using AspNetCoreGeneratedDocument;
+using JovemProgramadorWeb.Data.Repositorio.Interfaces;
+using JovemProgramadorWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JovemProgramadorWeb.Controllers
 {
     public class LoginController : Controller
     {
+        private readonly IUsuarioRepositorio _usuarioRepositorio;
+        public LoginController(IUsuarioRepositorio usuarioRepositorio)
+        {
+            _usuarioRepositorio = usuarioRepositorio;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -28,5 +36,29 @@ namespace JovemProgramadorWeb.Controllers
             }
             return View("Index");
         }
+        public IActionResult Cadastro (Usuario usuario)
+        {
+            return View();
+        }
+
+        public IActionResult CadastrarUsuario (Usuario usuario)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _usuarioRepositorio.CadastrarUsuario(usuario);
+                    TempData["MsgSucesso"] = "Usuário cadastrado com sucesso!";
+                    return RedirectToAction("Index", "Login");
+                }
+                return View("Cadastro", usuario);
+            }
+            catch (Exception)
+            {
+                TempData["MsgErro"] = "Ops, não conseguimos cadastrar seu usuário! Tente novamente...";
+                return View("Cadastro", usuario);
+            }
+        }
     }
+
 }
