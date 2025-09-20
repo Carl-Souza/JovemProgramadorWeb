@@ -54,3 +54,24 @@
     cursor: pointer;
     text-decoration: none;
 }
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+.footer {
+    background: #f8f9fa;
+    text-align: center;
+    line-height: 60px;
+    position: fixed;
+}

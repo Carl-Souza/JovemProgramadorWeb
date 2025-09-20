@@ -21,7 +21,9 @@ namespace JovemProgramadorWeb.Controllers
         {
             try
             {
-                if (usuario.Email == "carlsagan77@gmail.com" && usuario.Senha == "1234")
+                var usuarioRetornado = _usuarioRepositorio.ValidaUsuario(usuario);
+
+                if (usuarioRetornado != null)
                 {
                     return RedirectToAction("Index", "Home");
                 }

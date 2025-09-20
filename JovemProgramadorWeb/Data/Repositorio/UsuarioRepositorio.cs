@@ -18,5 +18,10 @@ namespace JovemProgramadorWeb.Data.Repositorio
             _bancoContexto.Usuario.Add(usuario);
             _bancoContexto.SaveChanges();
         }
+
+        public Usuario ValidaUsuario(Usuario usuario)
+        {
+            return _bancoContexto.Usuario.FirstOrDefault(u => u.Email == usuario.Email && u.Senha == usuario.Senha);
+        }
     }
 }
