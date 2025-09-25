@@ -1,40 +1,47 @@
-﻿<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Matricula</th>
-            <th scope="col">Nome</th>
-            <th scope="col">CPF</th>
-            <th scope="col">Data de Nascimento</th>
-            <th scope="col">Email</th>
-        </tr>
-    </thead>
-    <tbody>
+﻿@{
+    Layout = "_LayoutAluno";
+}
+@model  Aluno
 
-        <tr>
-            <td>
-                <input id="matriculaAluno" />
-            </td>
-            <td>
-                <input id="nomeAluno"/> 
-            </td>
-            <td>
-                <input id="cpfAluno" /> 
-            </td>
-            <td>
-                <input id="dataNascimentoAluno"/> 
-             </td>
-            <td>
-                <input id="emailAluno"/> 
-            </td>
-            <td>
-                <div class="d-grid gap-2 d-md-block">
-                    <a type="submit" class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="CadastrarAluno">Cadastrar</a>
-                </div>
-            </td>
-        </tr>
-    </tbody>
-</table>
+@if (TempData["MsgErro"] != null)
+{
+	<div class="alert alert-danger text-center mb-3">
+		@TempData["MsgErro"]
+	</div>
+}
 
-<div class="text-center">
-    <a class="btn btn-primary" type="button" asp-controller="Home" asp-action="Index"> Voltar</a>
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg p-4 rounded-4" style="width: 400px;">
+        <h3 class="text-center mb-4">Cadastro de Usuário</h3>
+
+        <form asp-controller="Login" asp-action="CadastrarAluno" method="post">
+
+            <div class="mb-3">
+                <label class="form-label">Matricula</label>
+                <input type="text" asp-for="Matricula" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Nome</label>
+                <input type="text" asp-for="Nome" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">CPF</label>
+                <input type="text" asp-for="Cpf" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Data de Nascimento</label>
+                <input type="text" asp-for="DataNascimento" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" asp-for="Email" class="form-control">
+            </div>
+
+
+            <div class="d-flex justify-content-between">
+                <a class="btn btn-outline-secondary" asp-controller="Aluno" asp-action="Index">Voltar</a>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </div>
+        </form>
+    </div>
 </div>
