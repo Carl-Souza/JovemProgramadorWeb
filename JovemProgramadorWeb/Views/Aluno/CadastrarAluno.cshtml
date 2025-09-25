@@ -1,0 +1,40 @@
+﻿<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Matricula</th>
+            <th scope="col">Nome</th>
+            <th scope="col">CPF</th>
+            <th scope="col">Data de Nascimento</th>
+            <th scope="col">Email</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>
+                <input id="matriculaAluno" />
+            </td>
+            <td>
+                <input id="nomeAluno"/> 
+            </td>
+            <td>
+                <input id="cpfAluno" /> 
+            </td>
+            <td>
+                <input id="dataNascimentoAluno"/> 
+             </td>
+            <td>
+                <input id="emailAluno"/> 
+            </td>
+            <td>
+                <div class="d-grid gap-2 d-md-block">
+                    <a type="submit" class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="CadastrarAluno">Cadastrar</a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="text-center">
+    <a class="btn btn-primary" type="button" asp-controller="Home" asp-action="Index"> Voltar</a>
+</div>

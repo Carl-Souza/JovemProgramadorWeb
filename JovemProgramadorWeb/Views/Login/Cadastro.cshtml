@@ -1,6 +1,12 @@
 ﻿@{
     Layout = "_LayoutLogin";
 }
+@if (TempData["MsgErro"] != null)
+{
+    <div class="alert alert-danger text-center mb-3">
+        @TempData["MsgErro"]
+    </div>
+}
 
 @model Usuario
 

@@ -7,6 +7,22 @@ namespace JovemProgramadorWeb.Controllers
         public IActionResult Index()
         {
             return View();
+        }        
+        public IActionResult CadastrarAluno()
+        {
+            return View();
+        }        
+        public IActionResult EditarAluno()
+        {
+            return View();
+        }        
+        public IActionResult ExcluirAluno()
+        {
+            return View();
+        }        
+        public IActionResult SelecionarAluno()
+        {
+            return View();
         }
     }
 }
