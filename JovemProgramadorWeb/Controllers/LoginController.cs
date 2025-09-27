@@ -12,7 +12,6 @@ namespace JovemProgramadorWeb.Controllers
         {
             _usuarioRepositorio = usuarioRepositorio;
         }
-
         public IActionResult Index()
         {
             return View();

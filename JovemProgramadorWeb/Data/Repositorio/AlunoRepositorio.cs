@@ -10,7 +10,7 @@ namespace JovemProgramadorWeb.Data.Repositorio
         {
             _bancoContexto = bancoContexto;
         }
-        public void CadastrarAluno(Aluno aluno)
+        public void CadastrarNovoAluno(Aluno aluno)
         {
             _bancoContexto.Aluno.Add(aluno);
             _bancoContexto.SaveChanges();
@@ -32,6 +32,8 @@ namespace JovemProgramadorWeb.Data.Repositorio
             {
                 aluno.Email = alunoSelecionado.Email;
                 aluno.Nome = alunoSelecionado.Nome;
+                aluno.CPF = alunoSelecionado.CPF;
+                aluno.Matricula = alunoSelecionado.Matricula;
                 aluno.DataNascimento = alunoSelecionado.DataNascimento;
             }
         }
